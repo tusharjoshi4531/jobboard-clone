@@ -5,6 +5,7 @@ import Button from "@/components/util/Button";
 import CustomSelect from "@/components/util/CustomSelect";
 import DropdownMenu from "@/components/util/DropdownMenu";
 import Input from "@/components/util/Input";
+import JobPostCard from "@/components/util/JobPostCard";
 import Toggle from "@/components/util/Toggle";
 import { useState } from "react";
 
@@ -131,6 +132,7 @@ const SettingsPage = () => {
             />
           </form>
         </Card>
+        <JobPostCard className="my-4 bg-yellow-200"/>
       </div>
     </>
   );
