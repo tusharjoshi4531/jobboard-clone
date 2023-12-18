@@ -132,7 +132,7 @@ const SettingsPage = () => {
             />
           </form>
         </Card>
-        <JobPostCard className="my-4 bg-yellow-200"/>
+        {/* <JobPostCard className="my-4 bg-yellow-200"/> */}
       </div>
     </>
   );
