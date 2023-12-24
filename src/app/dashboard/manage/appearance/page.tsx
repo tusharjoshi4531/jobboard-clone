@@ -115,6 +115,24 @@ export default function AppearanceSettingsPage() {
             textAlign="center"
           />
         </form>
+        <Button
+          className="w-full bg-slate-200 p-3 my-4"
+          text="Get Data"
+          onClick={async () => {
+            const url = new URL(
+              "/api/config",
+              process.env.NEXT_PUBLIC_DEPOYMENT_URL!
+            );
+
+            const res = await fetch(url, {
+              method: "GET",
+            });
+
+            const data = await res.json();
+            console.log({ data });
+            alert(JSON.stringify(data));
+          }}
+        />
       </Card>
     </>
   );
