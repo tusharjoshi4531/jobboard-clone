@@ -1,5 +1,4 @@
 import Card from "@/components/Card";
-import AuthForm from "@/components/auth/AuthForm";
 import React from "react";
 
 export default function AuthLayout({
