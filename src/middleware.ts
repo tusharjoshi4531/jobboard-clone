@@ -1,6 +1,6 @@
-import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs";
-import { NextRequest, NextResponse } from "next/server";
-import createSupabaseServerClient from "./lib/supabase/server";
+// import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs";
+// import { NextRequest, NextResponse } from "next/server";
+// import createSupabaseServerClient from "./lib/supabase/server";
 
 // export async function middleware(req: NextRequest) {
 //   const res = NextResponse.next();
@@ -11,26 +11,26 @@ import createSupabaseServerClient from "./lib/supabase/server";
 //   await supabase.auth.getSession();
 //   return res;
 // }
-export async function middleware(req: NextRequest) {
-  const res = NextResponse.next();
-  const supabase = await createSupabaseServerClient();
+// export async function middleware(req: NextRequest) {
+//   const res = NextResponse.next();
+//   const supabase = await createSupabaseServerClient();
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+//   const {
+//     data: { user },
+//   } = await supabase.auth.getUser();
 
-  if (user && req.nextUrl.pathname === "/") {
-    return NextResponse.redirect(
-      new URL("/dashboard/manage/appearance", req.url)
-    );
-  }
+//   if (user && req.nextUrl.pathname === "/") {
+//     return NextResponse.redirect(
+//       new URL("/dashboard/manage/appearance", req.url)
+//     );
+//   }
 
-  if (!user && req.nextUrl.pathname !== "/") {
-    return NextResponse.redirect(new URL("/", req.url));
-  }
+//   if (!user && req.nextUrl.pathname !== "/") {
+//     return NextResponse.redirect(new URL("/", req.url));
+//   }
 
-  return res;
-}
+//   return res;
+// }
 
 // export const config = {
 //   matcher: ["/", "/dashboard/:path*"],
