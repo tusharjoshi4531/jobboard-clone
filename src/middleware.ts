@@ -1,5 +1,6 @@
 import { createMiddlewareClient } from "@supabase/auth-helpers-nextjs";
 import { NextRequest, NextResponse } from "next/server";
+import createSupabaseServerClient from "./lib/supabase/server";
 
 // export async function middleware(req: NextRequest) {
 //   const res = NextResponse.next();
@@ -12,10 +13,7 @@ import { NextRequest, NextResponse } from "next/server";
 // }
 export async function middleware(req: NextRequest) {
   const res = NextResponse.next();
-  const supabase = createMiddlewareClient({
-    req,
-    res,
-  });
+  const supabase = await createSupabaseServerClient();
 
   const {
     data: { user },
@@ -37,4 +35,3 @@ export async function middleware(req: NextRequest) {
 // export const config = {
 //   matcher: ["/", "/dashboard/:path*"],
 // };
-
